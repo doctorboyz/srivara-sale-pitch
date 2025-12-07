@@ -70,11 +70,29 @@
             opacity: 0.5;
             transition: all 0.3s;
             filter: grayscale(100%);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 24px;
+            min-height: 24px;
         }
         .lang-btn:hover, .lang-btn.active {
             opacity: 1;
             filter: grayscale(0%);
             transform: scale(1.1);
+        }
+        /* Prevent text from wrapping in nav */
+        nav {
+            min-height: 60px;
+        }
+        @media (max-width: 640px) {
+            nav {
+                min-height: 50px;
+            }
+            .lang-btn {
+                min-width: 20px;
+                min-height: 20px;
+            }
         }
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
@@ -92,24 +110,24 @@
 <body class="font-sans antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 px-4 md:px-6 py-4 flex justify-between items-center glass-panel border-b-0 border-gold-600/30">
-        <div class="text-gold-400 font-serif text-lg md:text-xl tracking-widest font-bold truncate mr-4">SRIVARA PENTHOUSE</div>
+    <nav class="fixed w-full z-50 px-2 sm:px-4 md:px-6 py-3 md:py-4 flex justify-between items-center glass-panel border-b-0 border-gold-600/30">
+        <div class="text-gold-400 font-serif text-sm sm:text-base md:text-lg lg:text-xl tracking-wider md:tracking-widest font-bold truncate mr-2 sm:mr-3 md:mr-4 flex-shrink">SRIVARA PENTHOUSE</div>
         
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2 sm:gap-3 md:gap-4 flex-shrink-0">
             <!-- Language Switcher -->
-            <div class="flex gap-3 mr-2 bg-dark-800/50 px-3 py-1 rounded-full border border-gold-600/20">
+            <div class="flex gap-1.5 sm:gap-2 md:gap-3 bg-dark-800/50 px-2 sm:px-2.5 md:px-3 py-1 rounded-full border border-gold-600/20">
                 <button onclick="setLang('th')" class="lang-btn active" id="btn-th" title="Thai">
-                    <span class="fi fi-th text-xl rounded-sm"></span>
+                    <span class="fi fi-th text-base sm:text-lg md:text-xl rounded-sm"></span>
                 </button>
                 <button onclick="setLang('en')" class="lang-btn" id="btn-en" title="English">
-                    <span class="fi fi-us text-xl rounded-sm"></span>
+                    <span class="fi fi-us text-base sm:text-lg md:text-xl rounded-sm"></span>
                 </button>
                 <button onclick="setLang('cn')" class="lang-btn" id="btn-cn" title="Chinese">
-                    <span class="fi fi-cn text-xl rounded-sm"></span>
+                    <span class="fi fi-cn text-base sm:text-lg md:text-xl rounded-sm"></span>
                 </button>
             </div>
 
-            <a href="#contact" class="hidden md:block px-6 py-2 border border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-dark-900 transition duration-300 rounded-sm font-semibold text-sm" data-i18n="book_viewing">
+            <a href="#contact" class="hidden md:block px-4 lg:px-6 py-2 border border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-dark-900 transition duration-300 rounded-sm font-semibold text-xs lg:text-sm whitespace-nowrap" data-i18n="book_viewing">
                 BOOK VIEWING
             </a>
         </div>
@@ -122,29 +140,29 @@
             <div class="absolute inset-0 bg-gradient-to-b from-dark-900/40 via-dark-900/60 to-dark-900"></div>
         </div>
 
-        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="1500">
-            <p class="text-gold-300 tracking-[0.3em] uppercase text-sm md:text-base mb-4 font-semibold" data-i18n="hero_subtitle">The Hidden Gem of Ratchada</p>
-            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+        <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="1500">
+            <p class="text-gold-300 tracking-[0.2em] sm:tracking-[0.3em] uppercase text-xs sm:text-sm md:text-base mb-3 sm:mb-4 font-semibold" data-i18n="hero_subtitle">The Hidden Gem of Ratchada</p>
+            <h1 class="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight">
                 <span class="text-gradient-gold" data-i18n="hero_title_1">SKY MANSION</span><br>
-                <span class="text-white text-3xl md:text-6xl font-light italic" data-i18n="hero_title_2">In The Heart of New CBD</span>
+                <span class="text-white text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-light italic" data-i18n="hero_title_2">In The Heart of New CBD</span>
             </h1>
-            <div class="flex flex-col md:flex-row justify-center gap-6 mt-8 text-gray-300">
+            <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 md:gap-6 mt-6 sm:mt-8 text-gray-300">
                 <div class="flex items-center gap-2 justify-center">
-                    <i class="fa-solid fa-expand text-gold-400"></i>
-                    <span class="text-xl" data-i18n="feat_size">480 Sq.m.</span>
+                    <i class="fa-solid fa-expand text-gold-400 text-sm sm:text-base"></i>
+                    <span class="text-base sm:text-lg md:text-xl" data-i18n="feat_size">480 Sq.m.</span>
                 </div>
-                <div class="hidden md:block text-gold-600">|</div>
+                <div class="hidden sm:block text-gold-600">|</div>
                 <div class="flex items-center gap-2 justify-center">
-                    <i class="fa-solid fa-bed text-gold-400"></i>
-                    <span class="text-xl" data-i18n="feat_bed">5 Bedroom</span>
+                    <i class="fa-solid fa-bed text-gold-400 text-sm sm:text-base"></i>
+                    <span class="text-base sm:text-lg md:text-xl" data-i18n="feat_bed">5 Bedroom</span>
                 </div>
-                <div class="hidden md:block text-gold-600">|</div>
+                <div class="hidden sm:block text-gold-600">|</div>
                 <div class="flex items-center gap-2 justify-center">
-                    <i class="fa-solid fa-tag text-gold-400"></i>
-                    <span class="text-xl" data-i18n="feat_price">Only 30 MB</span>
+                    <i class="fa-solid fa-tag text-gold-400 text-sm sm:text-base"></i>
+                    <span class="text-base sm:text-lg md:text-xl" data-i18n="feat_price">Only 30 MB</span>
                 </div>
             </div>
-            <p class="mt-8 text-gold-100 text-lg md:text-xl font-light max-w-2xl mx-auto" data-i18n="hero_desc">
+            <p class="mt-6 sm:mt-8 text-gold-100 text-sm sm:text-base md:text-lg lg:text-xl font-light max-w-2xl mx-auto px-2" data-i18n="hero_desc">
                 บ้านเดี่ยวลอยฟ้า ใจกลางรัชดา-ห้วยขวาง พื้นที่ยักษ์ใหญ่สำหรับครอบครัวขยายหรือ Home Office รองรับ 10-15 คน
             </p>
         </div>
